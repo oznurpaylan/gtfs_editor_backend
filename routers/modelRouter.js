@@ -1,0 +1,116 @@
+const express = require('express')
+const { agencyPost, calendarPost, routePost, stopPost, stopTimePost, tripPost, attributionPost, calendarDatePost, fareAttributesPost,
+     fareRulePost, feedInfoPost, frequenciePost, levelPost, pathwayPost, shapePost, transferPost, translationPost, areaPost, stopAreaPost,
+     fareTransferRulesPost, fareMediaPost, fareProductsPost, fareLegRulesPost } = require('../contollers/modelCreateContoller')
+const { agencyDelete, calendarDelete, routeDelete, stopDelete, stopTimeDelete, tripDelete, attributionDelete, calendarDateDelete,
+     fareAttributesDelete, fareRuleDelete, feedInfoDelete, frequencieDelete, levelDelete, pathwayDelete, shapeDelete, transferDelete,
+     translationDelete, areaDelete, stopAreaDelete, fareTransferRulesDelete, fareMediaDelete, fareProductsDelete,
+     fareLegRulesDelete } = require('../contollers/modelDeleteController')
+const { agencyPut, calendarPut, routePut, stopPut, stopTimePut, tripPut, attributionPut, calendarDatePut, fareAttributesPut, fareRulePut,
+     feedInfoPut, frequenciePut, levelPut, pathwayPut, shapePut, transferPut, translationPut, areaPut, stopAreaPut, fareTransferRulesPut,
+     fareMediaPut, fareProductsPut, fareLegRulesPut } = require('../contollers/modelUpdateController')
+const { agencySearchPost, calendarSearchPost, routeSearchPost, stopSearchPost, stopTimeSearchPost, tripSearchPost, attributionSearchPost, calendarDateSearchPost, fareAttributesSearchPost, fareRuleSearchPost,
+     feedInfoSearchPost, frequencieSearchPost, levelSearchPost, pathwaySearchPost, shapeSearchPost, transferSearchPost, translationSearchPost, areaSearchPost, stopAreaSearchPost, fareTransferRulesSearchPost,
+     fareMediaSearchPost, fareProductsSearchPost, fareLegRulesSearchPost } = require('../contollers/modelReadContoller')
+
+     //dbye kaydedilen txt dosyalarının üzerinde CRUD işlemleri
+     
+const modelRouter = express.Router()
+
+modelRouter.route("/agency").post(agencyPost)  //db modele yeni kayıt oluşturmak
+modelRouter.route("/calendar").post(calendarPost)
+modelRouter.route("/route").post(routePost)
+modelRouter.route("/stop").post(stopPost)
+modelRouter.route("/stoptime").post(stopTimePost)
+modelRouter.route("/trip").post(tripPost)
+modelRouter.route("/attribution").post(attributionPost)
+modelRouter.route("/calendardate").post(calendarDatePost)
+modelRouter.route("/fareattribute").post(fareAttributesPost)
+modelRouter.route("/farerule").post(fareRulePost)
+modelRouter.route("/feedinfo").post(feedInfoPost)
+modelRouter.route("/frequencie").post(frequenciePost)
+modelRouter.route("/level").post(levelPost)
+modelRouter.route("/pathway").post(pathwayPost)
+modelRouter.route("/shape").post(shapePost)
+modelRouter.route("/transfer").post(transferPost)
+modelRouter.route("/translation").post(translationPost)
+modelRouter.route("/area").post(areaPost)
+modelRouter.route("/stoparea").post(stopAreaPost)
+modelRouter.route("/faretransferrule").post(fareTransferRulesPost)
+modelRouter.route("/faremedia").post(fareMediaPost)
+modelRouter.route("/fareproduct").post(fareProductsPost)
+modelRouter.route("/farelegrule").post(fareLegRulesPost)
+
+modelRouter.route('/agency/:name').post(agencySearchPost)  //db kayıtları bulamk için session id ye göre 
+modelRouter.route('/calendar/:name').post(calendarSearchPost)
+modelRouter.route('/route/:name').post(routeSearchPost)
+modelRouter.route('/stop/:name').post(stopSearchPost)
+modelRouter.route('/stoptime/:name').post(stopTimeSearchPost)
+modelRouter.route('/trip/:name').post(tripSearchPost)
+modelRouter.route('/attribution/:name').post(attributionSearchPost)
+modelRouter.route('/calendardate/:name').post(calendarDateSearchPost)
+modelRouter.route('/fareattribute/:name').post(fareAttributesSearchPost)
+modelRouter.route('/farerule/:name').post(fareRuleSearchPost)
+modelRouter.route('/feedinfo/:name').post(feedInfoSearchPost)
+modelRouter.route('/frequencie/:name').post(frequencieSearchPost)
+modelRouter.route('/level/:name').post(levelSearchPost)
+modelRouter.route('/pathway/:name').post(pathwaySearchPost)
+modelRouter.route('/shape/:name').post(shapeSearchPost)
+modelRouter.route('/transfer/:name').post(transferSearchPost)
+modelRouter.route('/translation/:name').post(translationSearchPost)
+modelRouter.route('/area/:name').post(areaSearchPost)
+modelRouter.route('/stoparea/:name').post(stopAreaSearchPost)
+modelRouter.route('/faretransferrule/:name').post(fareTransferRulesSearchPost)
+modelRouter.route('/faremedia/:name').post(fareMediaSearchPost)
+modelRouter.route('/fareproduct/:name').post(fareProductsSearchPost)
+modelRouter.route('/farelegrule/:name').post(fareLegRulesSearchPost)
+
+modelRouter.route('/agency/update/:id').put(agencyPut)   //db kayıt güncellemek için
+modelRouter.route('/calendar/update/:id').put(calendarPut)
+modelRouter.route('/route/update/:id').put(routePut)
+modelRouter.route('/stop/update/:id').put(stopPut)
+modelRouter.route('/stoptime/update/:id').put(stopTimePut)
+modelRouter.route('/trip/update/:id').put(tripPut)
+modelRouter.route('/attribution/update/:id').put(attributionPut)
+modelRouter.route('/calendardate/update/:id').put(calendarDatePut)
+modelRouter.route('/fareattribute/update/:id').put(fareAttributesPut)
+modelRouter.route('/farerule/update/:id').put(fareRulePut)
+modelRouter.route('/feedinfo/update/:id').put(feedInfoPut)
+modelRouter.route('/frequencie/update/:id').put(frequenciePut)
+modelRouter.route('/level/update/:id').put(levelPut)
+modelRouter.route('/pathway/update/:id').put(pathwayPut)
+modelRouter.route('/shape/update/:id').put(shapePut)
+modelRouter.route('/transfer/update/:id').put(transferPut)
+modelRouter.route('/translation/update/:id').put(translationPut)
+modelRouter.route('/area/update/:id').put(areaPut)
+modelRouter.route('/stoparea/update/:id').put(stopAreaPut)
+modelRouter.route('/faretransferrule/update/:id').put(fareTransferRulesPut)
+modelRouter.route('/faremedia/update/:id').put(fareMediaPut)
+modelRouter.route('/fareproduct/update/:id').put(fareProductsPut)
+modelRouter.route('/farelegrule/update/:id').put(fareLegRulesPut)
+
+modelRouter.route('/agency/delete/:id').delete(agencyDelete) //db id ye göre silme işlemi
+modelRouter.route('/calendar/delete/:id').delete(calendarDelete)
+modelRouter.route('/route/delete/:id').delete(routeDelete)
+modelRouter.route('/stop/delete/:id').delete(stopDelete)
+modelRouter.route('/stoptime/delete/:id').delete(stopTimeDelete)
+modelRouter.route('/trip/delete/:id').delete(tripDelete)
+modelRouter.route('/attribution/delete/:id').delete(attributionDelete)
+modelRouter.route('/calendardate/delete/:id').delete(calendarDateDelete)
+modelRouter.route('/fareattribute/delete/:id').delete(fareAttributesDelete)
+modelRouter.route('/farerule/delete/:id').delete(fareRuleDelete)
+modelRouter.route('/feedinfo/delete/:id').delete(feedInfoDelete)
+modelRouter.route('/frequencie/delete/:id').delete(frequencieDelete)
+modelRouter.route('/level/delete/:id').delete(levelDelete)
+modelRouter.route('/pathway/delete/:id').delete(pathwayDelete)
+modelRouter.route('/shape/delete/:id').delete(shapeDelete)
+modelRouter.route('/transfer/delete/:id').delete(transferDelete)
+modelRouter.route('/translation/delete/:id').delete(translationDelete)
+modelRouter.route('/area/delete/:id').delete(areaDelete)
+modelRouter.route('/stoparea/delete/:id').delete(stopAreaDelete)
+modelRouter.route('/faretransferrule/delete/:id').delete(fareTransferRulesDelete)
+modelRouter.route('/faremedia/delete/:id').delete(fareMediaDelete)
+modelRouter.route('/fareproduct/delete/:id').delete(fareProductsDelete)
+modelRouter.route('/farelegrule/delete/:id').delete(fareLegRulesDelete)
+
+module.exports = { modelRouter }
