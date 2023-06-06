@@ -8,6 +8,7 @@ const { zipRouter } = require('./routers/zipRouter.js')
 const { addRouter } = require("./routers/addRouter.js")
 const { modelRouter } = require("./routers/modelRouter.js")
 const { saveRouter } = require("./routers/saveRouter.js")
+const { mapRouter } = require("./routers/mapRouter.js")
 
 global.__basedir = __dirname
 
@@ -26,6 +27,7 @@ app.use('/', zipRouter)
 app.use('/add', addRouter) //db ekleme 
 app.use('/model',modelRouter)
 app.use('/save',saveRouter) //db den zip alarak dosyaya kaydetme
+app.use('/map',mapRouter)
 
 app.listen(port, () => {
     console.log(`${port} numaralı portta hazır.`)
