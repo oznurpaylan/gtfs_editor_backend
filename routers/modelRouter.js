@@ -11,10 +11,9 @@ const { agencyPut, calendarPut, routePut, stopPut, stopTimePut, tripPut, attribu
      fareMediaPut, fareProductsPut, fareLegRulesPut } = require('../contollers/modelUpdateController')
 const { agencySearchPost, calendarSearchPost, routeSearchPost, stopSearchPost, stopTimeSearchPost, tripSearchPost, attributionSearchPost, calendarDateSearchPost, fareAttributesSearchPost, fareRuleSearchPost,
      feedInfoSearchPost, frequencieSearchPost, levelSearchPost, pathwaySearchPost, shapeSearchPost, transferSearchPost, translationSearchPost, areaSearchPost, stopAreaSearchPost, fareTransferRulesSearchPost,
-     fareMediaSearchPost, fareProductsSearchPost, fareLegRulesSearchPost } = require('../contollers/modelReadContoller')
+     fareMediaSearchPost, fareProductsSearchPost, fareLegRulesSearchPost} = require('../contollers/modelReadContoller')
 
      //dbye kaydedilen txt dosyalarının üzerinde CRUD işlemleri
-     
 const modelRouter = express.Router()
 
 modelRouter.route("/agency").post(agencyPost)  //db modele yeni kayıt oluşturmak
