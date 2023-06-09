@@ -11,7 +11,6 @@ GTFS verilerinin buldunduğu zorunlu ve opsiyonel 23 farklı dosya için gerçek
 - Kayıtlı veriler üzerinde CRUD işlemleri gerçekleştirilerek tekrar veritabanına ve dosya üzerine yazma işlemi gerçekleştirildi. 
 - Yüklenen dosyaya özel oluşturulan session_id ye göre dosyaları tekrar .zip haline getirme ve indirme işlemi gerçekleştirildi.
 
-![image]([https://github.com/oznurpaylan/gtfs_editor_backend/assets/79011604/f38d64f6-82d1-406d-a1fb-ff2d7b7fb1d6](https://trilliumtransit.com/wp-content/uploads/2016/07/GTFS_data_model_diagram.png))
 
 ## Kullanılan araçlar
 
